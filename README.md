@@ -1,4 +1,4 @@
-React / Redux Content Streaming App
+React / Redux Video Streaming App
 
 1.  Set-up routes to different components
 2.  Wire up Google API Library to handle authentication
