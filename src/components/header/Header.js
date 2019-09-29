@@ -8,7 +8,7 @@ const Header = () => {
       <Link to="/" className="item">
         Streamy
       </Link>
-      <div className="right menu">
+      <div className="right menu" style={{marginBottom: '12.5px'}}>
         <Link to="/" className="item">
           All Streams
         </Link>

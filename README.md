@@ -16,3 +16,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+http://www.albertgao.xyz/2018/12/15/how-to-add-official-google-sign-in-to-your-react-application/
