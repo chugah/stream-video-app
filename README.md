@@ -3,6 +3,9 @@ React / Redux Video Streaming App
 1.  Set-up routes to different components
 2.  Wire up Google API Library to handle authentication
 3.  Start implementation of redux to the authentication process
+4.  Completed authentication
+5.  Added API server
+6.  Implemented ability to create a stream
 
 ## Available Scripts
 
