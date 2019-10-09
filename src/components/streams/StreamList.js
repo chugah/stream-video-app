@@ -1,11 +1,74 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getStreams } from '../../actions';
 
-const StreamList = () => {
-  return (
-    <div>
-      <h1>Stream List</h1>
-    </div>
-  );
+class StreamList extends Component {
+  componentDidMount() {
+    this.props.getStreams();
+  }
+
+  renderUserBtns = stream => {
+    if(stream.userId === this.props.currentUserId) {
+      return (
+        <div className="right floated content">
+          <button className="ui button primary">Edit</button>
+          <button className="ui button negative">Delete</button>
+        </div>
+      );
+    }
+  }
+
+  renderList = () => {
+    return this.props.streams.map(stream => {
+      return (
+        <div className="item" key={stream.id}>
+          {this.renderUserBtns(stream)}
+          <i className="large middle aligned icon camera" />
+          <div className="content">
+            <div className="header">
+              {stream.title}
+            </div>
+            <div className="description">
+              {stream.description}
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
+
+  renderAddStream = () => {
+    if(this.props.isSignedIn) {
+      return (
+        <div style={{ textAlign: 'right'}}>
+          <Link to="/stream/new" className="ui button primary">
+            Create Stream
+          </Link>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Stream List</h2>
+        <div className="ui celled list">
+          {this.renderList()}
+        </div>
+        {this.renderAddStream()}
+      </div>
+    );
+  }
 }
 
-export default StreamList;
+const mapStateToProps = state => {
+  return {
+    streams: Object.values(state.streams),
+    currentUserId: state.auth.userId,
+    isSignedIn: state.auth.isSignedIn
+  };
+};
+
+export default connect(mapStateToProps, { getStreams })(StreamList);
