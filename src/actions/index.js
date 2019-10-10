@@ -1,4 +1,5 @@
 import streams from '../api/streams';
+import history from '../history';
 import { ADD_STREAM, DELETE_STREAM, EDIT_STREAM, GET_STREAM, GET_STREAMS, SIGN_IN, SIGN_OUT } from './types';
 
 export const signIn = userId => {
@@ -21,6 +22,7 @@ export const addStream = formValues => async (dispatch, getState) => {
     type: ADD_STREAM,
     payload: response.data
   });
+  history.push('/');
 };
 
 export const getStreams = () => async dispatch => {
