@@ -13,7 +13,7 @@ export default (state = {}, action) => {
       return { ...state, [action.payload.id]: action.payload };
 
     case GET_STREAM:
-      return { ...state, [action.payload.id]: action.payload  };
+      return { ...state, [action.payload.id]: action.payload };
 
     case GET_STREAMS:
       return { ...state, ..._.mapKeys(action.payload, 'id') };
