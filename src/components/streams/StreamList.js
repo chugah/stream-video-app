@@ -30,7 +30,7 @@ class StreamList extends Component {
               {stream.title}
             </div>
             <div className="description">
-              {stream.description}
+              <Link to={`streams/${stream.id}`} className="header">{stream.description}</Link>
             </div>
           </div>
         </div>
